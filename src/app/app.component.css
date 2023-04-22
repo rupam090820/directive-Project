@@ -1,0 +1,20 @@
+header{
+background-color: bisque;
+}
+.search{
+    text-align: center;
+}
+li{
+    list-style: none;
+}
+.even1{
+    background-color: cornflowerblue;
+}
+.odd2{
+    background-color: darkgray;
+}
+hr{
+    height: 2px;
+    background-color: blueviolet;
+    border: none;
+}

@@ -1,0 +1,72 @@
+<div class="container">
+  <header style="text-align: center;">Rupam Food Center</header>
+
+
+
+
+  <section class="search">
+    <input type="search" placeholder="enter your food name" #search (keyup)="searchfood(search)">
+  </section>
+
+  <ng-container *ngIf="searchFoodList != 0 then searchblock else entireblock"> </ng-container>
+
+
+  <ng-template #searchblock> <!-- this is  food item list showing after seaching-->
+    <div class="list-group-item" *ngFor="let object of searchFoodList; let i=index" [ngClass]="i%2==0 ? 'even1':'odd2'"
+      (click)="select(object)"> <!-- here we use for loop of  searchingFoodlist -->
+      <ul>
+        <li>{{object.food}}
+
+          <span class="badge badge-pill badge-success float-right">{{object.price}}</span>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+
+  <ng-template #entireblock> <!-- this is original food item list-->
+    <div class="list-group-item" *ngFor="let object of foodList; let i=index" [ngClass]="i%2==0 ? 'even1':'odd2'"
+      (click)="select(object)">
+      <ul>
+        <li>{{object.food}}
+
+          <span class="badge badge-pill badge-success float-right">{{object.price}}</span>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+
+
+  <div *ngIf="detailsfood !=0">
+    <hr>
+    <table class="table table-border bg-success">
+      <TR>
+
+        <th colspan="2" style="background-color: burlywood; text-align: center;">--:FOOD DETAILS:--</th>
+      </TR>
+      <tr>
+        <th class="table-success">NAME </th>
+        <td>
+          {{detailsfood.food}}
+        </td>
+      </tr>
+      <tr>
+        <th class="table-success">FOOD-ID </th>
+        <td>
+          {{detailsfood.food_id}}
+        </td>
+      </tr>
+      <tr>
+        <th class="table-success">FOOD-PRICE </th>
+        <td>
+          {{detailsfood.price}}
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+
+
+
+
+</div>
